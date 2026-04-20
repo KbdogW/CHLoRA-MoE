@@ -1,14 +1,14 @@
-# Severity Project
+# CHLoRA-MoE Project
 
 ## 网页界面截图
-*(请将你的网页截图或多张图片放在 `screenshots/` 文件夹下，然后在这里使用 Markdown 语法引用它们)*
 
 示例：
 ![Webpage Screenshot 1](./screenshots/1.png)
 ![Webpage Screenshot 2](./screenshots/2.png)
+![Webpage Screenshot 2](./screenshots/3.png)
 
 ## 简介
-这是一个使用 Triton Inference Server 和前端 Vue/Vite 构建的深度学习推理与 RAG 系统项目。
+这是一个使用 Triton Inference Server（后端：FastAPI和前端：Vue/Vite ）构建的深度学习推理与 RAG 系统项目。
 
 ## 包含的模块
 - **frontend**: Vue 3 + Vite 前端界面
@@ -16,4 +16,4 @@
 - **rag**: 检索增强生成 (RAG) 知识库构建与查询（结合了 BGE Embedding 和 Qdrant）
 - **train_model**: 模型微调与训练脚本
 - **triton_model_repo**: Triton 推理服务器的模型仓库配置
-- **相关脚本**: 用于导出 ONNX、批处理客户端测试、性能数据准备等
+- **其他脚本**: 用于导出 ONNX、批处理客户端测试、性能数据准备等
