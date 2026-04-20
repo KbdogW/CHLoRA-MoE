@@ -36,5 +36,7 @@ __pycache__/
 *.csv
 *.log
 
+# Also keep the README.md and screenshots
 !/README.md
-!/screenshot.png
+!/screenshots/
+!/screenshots/*
