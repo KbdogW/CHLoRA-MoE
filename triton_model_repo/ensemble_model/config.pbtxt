@@ -1,0 +1,57 @@
+name: "ensemble_model"
+platform: "ensemble"
+max_batch_size: 32
+
+input [
+  {
+    name: "audio_bytes"
+    data_type: TYPE_STRING
+    dims: [ 1 ]
+  }
+]
+
+output [
+  {
+    name: "logits"
+    data_type: TYPE_FP32
+    dims: [ 5 ]
+  },
+  {
+    name: "router_logits"
+    data_type: TYPE_FP32
+    dims: [ 5 ]
+  }
+]
+
+ensemble_scheduling {
+  step [
+    {
+      model_name: "python_preprocess"
+      model_version: -1
+      input_map {
+        key: "audio_bytes"
+        value: "audio_bytes"
+      }
+      output_map {
+        key: "input_values"
+        value: "preprocessed_input_values"
+      }
+    },
+    {
+      model_name: "tensorrt_model"
+      model_version: -1
+      input_map {
+        key: "input_values"
+        value: "preprocessed_input_values"
+      }
+      output_map {
+        key: "logits"
+        value: "logits"
+      }
+      output_map {
+        key: "router_logits"
+        value: "router_logits"
+      }
+    }
+  ]
+}

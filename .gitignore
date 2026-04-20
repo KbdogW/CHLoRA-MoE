@@ -1,0 +1,37 @@
+# Ignore everything in the root directory by default
+/*
+
+# ----------------------------------------------------------------------
+# Whitelist the specific folders and files requested
+# ----------------------------------------------------------------------
+!/frontend/
+!/rag/
+!/train_model/
+!/triton_model_repo/
+!/batch_client.py
+!/Dockerfile.triton
+!/export_onnx.py
+!/main.py
+!/prepare_perf_data.py
+
+# Also keep the .gitignore file itself
+!/.gitignore
+
+# ----------------------------------------------------------------------
+# Explicitly ignore unwanted subdirectories and files inside the whitelisted folders
+# ----------------------------------------------------------------------
+/rag/data/
+/frontend/node_modules/
+/frontend/dist/
+
+# Python caches and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary files or large models just in case they are generated inside whitelisted folders
+*.onnx
+*.plan
+*.csv
+*.log

@@ -1,0 +1,7 @@
+FROM nvcr.io/nvidia/tritonserver:24.03-py3
+
+# 设置国内 pip 镜像源加速下载
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 安装 Python Backend 所需的依赖
+RUN pip install transformers librosa soundfile torch
